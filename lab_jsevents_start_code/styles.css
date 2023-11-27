@@ -1,0 +1,9 @@
+
+li.incomplete {
+    color: black;
+}
+
+li.complete {
+    color: grey;
+}
+
