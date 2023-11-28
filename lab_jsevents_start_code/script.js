@@ -3,6 +3,7 @@ const list = document.querySelector('#list');
 const completedList = document.querySelector('#completedList');
 const currentDateButton = document.querySelector('#current-date');
 const showDateContainer = document.querySelector('.Show-date-container');
+const body = document.querySelector('body');
 
 
 
@@ -56,21 +57,34 @@ enterButton.addEventListener("submit", (event) => {
 })
 
 
-currentDateButton.addEventListener("click", () => {
+// currentDateButton.addEventListener("click", () => {
 
+//     const currentTime = document.createElement('h1');
+//     currentTime.classList.add("current-date");
+//     currentTime.innerText = Date();    
+//     if (showDateContainer.contains(document.querySelector(".current-date"))){
+//         showDateContainer.removeChild(document.querySelector(".current-date"));
+//         // body.removeChild(currentTime);
+//     }
+//     // showDateContainer.appendChild(currentTime);
+//     body.insertBefore(currentTime,document.body.firstChild);
+// })
+
+currentDateButton.addEventListener("click", () => {
+    // Remove any existing elements with the class "current-date"
+    const existingElement = document.querySelector(".current-date");
+    if (existingElement) {
+        existingElement.parentNode.removeChild(existingElement);
+    }
+
+    // Create a new h1 element
     const currentTime = document.createElement('h1');
     currentTime.classList.add("current-date");
-    currentTime.innerText = Date();    
-    if (showDateContainer.contains(document.querySelector(".current-date"))){
-        showDateContainer.removeChild(document.querySelector(".current-date"));
-        // body.removeChild(currentTime);
-    }
-    showDateContainer.appendChild(currentTime);
+    currentTime.innerText = Date();
 
-    
-
-
-})
+    // Insert the new h1 element at the top of the body
+    document.body.insertBefore(currentTime, document.body.firstChild);
+});
 
 
 
