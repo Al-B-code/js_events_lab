@@ -51,7 +51,7 @@ enterButton.addEventListener("submit", (event) => {
     
 
     deleteItemButton.addEventListener("click", () => {
-        list.removeChild(newItem);
+       newItem.parentNode.removeChild(newItem);
     })
 
 })
